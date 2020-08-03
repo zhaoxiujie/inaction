@@ -21,7 +21,7 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId> <!--自动添加 Tomcat 和 Spring MVC 的依赖，并自动配置-->
         </dependency>
 
         <dependency>
