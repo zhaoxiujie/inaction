@@ -1,8 +1,12 @@
 package com.zxj.inaction.web;
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
@@ -11,19 +15,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Description: 启动器
+ * @Description: 启动器，继承类SpringBootServletInitializer，可以使用外置的tomcat启动
+ *
  * @Author zhaoxiujie1
  * @CreateDate: 2020/08/03
  */
-@SpringBootApplication(scanBasePackages = {"com.zxj.inaction"})
+@Slf4j
 @PropertySources({
-        @PropertySource("classpath:properties/application.properties")
+        @PropertySource(value = "classpath:properties/application.properties")
 })
-@ImportResource({
-        "classpath:spring/spring-config-jsf.xml"
-})
+@ImportResource(value = {"classpath:spring-config.xml"})
 @RestController
-public class InactionApp {
+@SpringBootApplication(scanBasePackages = {"com.zxj.inaction"})
+public class InactionApp extends SpringBootServletInitializer {
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Value("${system.name}")
     private String systemName;
@@ -36,7 +42,20 @@ public class InactionApp {
     }
 
     public static void main(String[] args) {
+
         SpringApplication.run(InactionApp.class, args);
+        log.info("############################################");
+        log.error("############   inaction启动完毕  ############");
+        log.error("############################################");
     }
 
+    /**
+     * 重写类SpringBootServletInitializer的configure方法
+     * @param builder
+     * @return
+     */
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(InactionApp.class);
+    }
 }
