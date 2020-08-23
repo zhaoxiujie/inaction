@@ -6,7 +6,7 @@
     <properties>
         <!-- 自定义一些常量，之后使用${变量名}引用 -->
         <Property name="logPath">/Users/zhaoxiujie/Documents/IdeaProjects/Logs/inaction.jd.com</Property>
-        <Property name="logPattern"></Property>
+        <Property name="logPattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p [%c-%L] %m%n</Property>
         <!--<Property name="logPath">/export/Logs/inaction.jd.com</Property>-->
     </properties>
 

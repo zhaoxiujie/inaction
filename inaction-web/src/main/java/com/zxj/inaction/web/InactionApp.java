@@ -9,8 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,15 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @CreateDate: 2020/08/03
  */
 @Slf4j
-@PropertySources({
-        @PropertySource(value = "classpath:properties/application.properties")
-})
 @ImportResource(value = {"classpath:spring-config.xml"})
 @RestController
 @SpringBootApplication(scanBasePackages = {"com.zxj.inaction"})
 public class InactionApp extends SpringBootServletInitializer {
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final static Logger logger = LoggerFactory.getLogger(InactionApp.class);
 
     @Value("${system.name}")
     private String systemName;
@@ -43,7 +38,9 @@ public class InactionApp extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
 
+        logger.info("-----------------");
         SpringApplication.run(InactionApp.class, args);
+        logger.info("*********");
         log.info("############################################");
         log.error("############   inaction启动完毕  ############");
         log.error("############################################");
