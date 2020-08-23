@@ -92,6 +92,6 @@
 		<appender-ref ref="STDOUT"/>
 		<appender-ref ref="ERROR_LOG"/>
 		<appender-ref ref="DEBUG_LOG"/>
-		<!--<appender-ref ref="INFO_LOG"/>-->
+		<appender-ref ref="INFO_LOG"/>
 	</root>
 </configuration>

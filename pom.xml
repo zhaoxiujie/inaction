@@ -35,6 +35,8 @@
         <slf4j.version>1.7.25</slf4j.version>
         <logback.version>1.1.7</logback.version>
         <log4j.version>2.9.1</log4j.version>
+        <lombok.version>1.18.12</lombok.version>
+        <testng.version>6.10</testng.version>
     </properties>
 
     <dependencyManagement>
@@ -108,26 +110,30 @@
                 <version>${springboot.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-log4j2</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
 
             <!-- testng -->
             <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
-                <version>6.10</version>
+                <version>${testng.version}</version>
                 <scope>test</scope>
             </dependency>
-
             <!-- fastjson -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-
+            <!-- lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.12</version>
+                <version>${lombok.version}</version>
             </dependency>
 
             <!-- log4j2 start -->
@@ -153,6 +159,11 @@
                 <artifactId>log4j-slf4j-impl</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
             <!-- log4j2 end -->
 
             <!---logback start-->
@@ -176,12 +187,14 @@
         </dependencies>
     </dependencyManagement>
 
+    <!-- common start -->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
     </dependencies>
+    <!-- common end -->
 
     <profiles>
         <profile>

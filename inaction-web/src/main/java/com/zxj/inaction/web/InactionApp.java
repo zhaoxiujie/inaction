@@ -40,7 +40,7 @@ public class InactionApp extends SpringBootServletInitializer {
 
         logger.info("-----------------");
         SpringApplication.run(InactionApp.class, args);
-        logger.info("*********");
+        logger.error("*********");
         log.info("############################################");
         log.error("############   inaction启动完毕  ############");
         log.error("############################################");
