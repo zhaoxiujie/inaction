@@ -25,6 +25,7 @@
     <description>inaction project</description>
 
     <properties>
+        <!--<start-class>com.zxj.inaction.web.InactionApp</start-class>-->
         <modules.version>1.0.0-SNAPSHOT</modules.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,6 +36,7 @@
         <slf4j.version>1.7.25</slf4j.version>
         <logback.version>1.1.7</logback.version>
         <log4j.version>2.9.1</log4j.version>
+        <testng.version>6.10</testng.version>
     </properties>
 
     <dependencyManagement>
@@ -113,7 +115,7 @@
             <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
-                <version>6.10</version>
+                <version>${testng.version}</version>
                 <scope>test</scope>
             </dependency>
 
@@ -217,10 +219,36 @@
         <finalName>${project.name}</finalName>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+                <configuration>
+                    <mainClass>com.zxj.inaction.web.InactionApp</mainClass>
+                </configuration>
+            </plugin>-->
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>
