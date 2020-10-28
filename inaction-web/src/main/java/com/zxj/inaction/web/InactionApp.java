@@ -14,13 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Description: 启动器，继承类SpringBootServletInitializer，可以使用外置的tomcat启动
- *
  * @Author zhaoxiujie1
  * @CreateDate: 2020/08/03
  */
 @Slf4j
 @ImportResource(value = {"classpath:spring-config.xml"})
-@RestController
 @SpringBootApplication(scanBasePackages = {"com.zxj.inaction"})
 public class InactionApp extends SpringBootServletInitializer {
 
@@ -30,10 +28,12 @@ public class InactionApp extends SpringBootServletInitializer {
     private String systemName;
     @Value("${system.author}")
     private String systemAuthor;
+    @Value("${system.env}")
+    private String systemEnv;
 
-    @RequestMapping("/")
-    public String index() {
-        return "Hello , Spring Boot! This is " + systemName + " by "+systemAuthor;
+    @RequestMapping("/hello")
+    public String hello() {
+        return "Hello , Spring Boot! This is " + systemName + "_" + systemEnv + " by " + systemAuthor;
     }
 
     public static void main(String[] args) {
@@ -48,6 +48,7 @@ public class InactionApp extends SpringBootServletInitializer {
 
     /**
      * 重写类SpringBootServletInitializer的configure方法
+     *
      * @param builder
      * @return
      */

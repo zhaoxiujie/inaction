@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	<Property name="logPath" value="/Users/zhaoxiujie/Documents/IdeaProjects/Logs/inaction.jd.com" />
-	<!-- %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p [%c-%L] %m%n -->
 	<!-- 日志文件输出到目录 -->
 	<property name="LOG_DIR" value="${logPath}"/>
 
@@ -9,6 +8,7 @@
 	<property name="LOG_PREFIX" value="inaction"/>
 
 	<!-- 默认日志输出格式 -->
+	<!-- %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p [%c-%L] %m%n -->
 	<property name="LOG_MSG" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p [%c-%L] %m%n"/>
 
 	<!-- 控制台输出配置 -->
@@ -76,7 +76,7 @@
 		<appender-ref ref="TP_LOG"/>
 	</logger>-->
 
-	<!--log4jdbc -->
+	<!--log4jdbc  (I don't know what meaning these loggers are yet)-->
 	<logger name="jdbc.sqltiming" level="debug"/>
 	<logger name="com.ibatis" level="debug"/>
 	<logger name="com.ibatis.common.jdbc.SimpleDataSource" level="debug"/>

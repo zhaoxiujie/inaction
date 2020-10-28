@@ -37,6 +37,7 @@
         <logback.version>1.1.7</logback.version>
         <log4j.version>2.9.1</log4j.version>
         <testng.version>6.10</testng.version>
+        <jsf.version>1.6.9</jsf.version>
     </properties>
 
     <dependencyManagement>
@@ -130,6 +131,7 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.18.12</version>
+                <scope>compile</scope>
             </dependency>
 
             <!-- log4j2 start -->
@@ -175,45 +177,25 @@
             </dependency>
             <!---logback end-->
 
+            <!-- JD start -->
+
+            <!-- jsf  -->
+            <dependency>
+                <groupId>com.jd</groupId>
+                <artifactId>jsf</artifactId>
+                <version>${jsf.version}</version>
+            </dependency>
+
+            <!-- JD end-->
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
+    <!--<dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
-    </dependencies>
-
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <profile.active>dev</profile.active>
-            </properties>
-        </profile>
-        <profile>
-            <id>test</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <profile.active>test</profile.active>
-            </properties>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <profile.active>prod</profile.active>
-            </properties>
-        </profile>
-    </profiles>
+    </dependencies>-->
 
     <build>
         <finalName>${project.name}</finalName>
