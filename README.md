@@ -14,3 +14,5 @@ inaction -- project for practice
     
     （可能会出现报Failed to load class "org.slf4j.impl.StaticLoggerBinder"错误，是因为需要 桥接Slf4j to Log4j2 的包，比如log4j-slf4j-impl或slf4j-log4j12等，而项目没有引入；spring-boot-starter-log4j2中就包含log4j-slf4j-impl)；
 4、如果不想每次都写private  final Logger logger = LoggerFactory.getLogger(当前类名.class); 可以用注解@Slf4j。该注解是Lombok插件中的，需要在pom文件加入lombok的依赖。
+
+5、分支init为框架的初始完整结构，整合了logback,但是inaction-common等其他module中还没有任何内容。
