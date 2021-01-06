@@ -25,7 +25,7 @@
     <description>inaction project</description>
 
     <properties>
-        <!--<start-class>com.zxj.inaction.web.InactionApp</start-class>-->
+        <!--<start-class>InactionApp</start-class>-->
         <modules.version>1.0.0-SNAPSHOT</modules.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -227,7 +227,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.zxj.inaction.web.InactionApp</mainClass>
+                    <mainClass>InactionApp</mainClass>
                 </configuration>
             </plugin>-->
 

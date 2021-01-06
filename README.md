@@ -16,3 +16,5 @@ inaction -- project for practice
 4、如果不想每次都写private  final Logger logger = LoggerFactory.getLogger(当前类名.class); 可以用注解@Slf4j。该注解是Lombok插件中的，需要在pom文件加入lombok的依赖。
 
 5、分支init为框架的初始完整结构，整合了logback,但是inaction-common等其他module中还没有任何内容。
+
+6、
