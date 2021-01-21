@@ -2,11 +2,21 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jsf="http://jsf.jd.com/schema/jsf"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context
-       https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://jsf.jd.com/schema/jsf http://jsf.jd.com/schema/jsf/jsf.xsd">
+    <!-- 单点登录JSF服务接口 -->
+    <jsf:consumer id="ssoService" interface="com.jd.ssa.service.SsoService" protocol="jsf" alias="v1" timeout="10000"/>
 
-    <context:property-placeholder location="classpath:properties/authentication.properties" />
+    <!--单点登录:JSF方式集成 参见https://cf.jd.com/pages/viewpage.action?pageId=80235590-->
+    <!-- 单点登录 springmvc 拦截器bean -->
+    <bean id="springSSOInterceptor" class="com.jd.common.springmvc.interceptor.SpringSSOInterceptor">
+        <property name="loginUrl" value="${login.address}" />
+        <property name="excludePath" value="${sso.exclude.path}"/>
+        <property name="ssoAppKey" value="${sso.appkey}"/>
+        <property name="ssoAppToken" value="${sso.apptoken}"/>
+        <property name="ssoService" ref="ssoService"/>
+    </bean>
 
     <!-- 单点登录拦截器配置 -->
     <mvc:interceptors>
@@ -15,14 +25,5 @@
             <ref bean="springSSOInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
-
-    <!-- 单点登录 springmvc 拦截器bean -->
-    <bean id="springSSOInterceptor" class="com.jd.common.springmvc.interceptor.SpringSSOInterceptor">
-        <property name="loginUrl" value="${login.address}" />
-        <property name="excludePath" value="${sso.exclude.path}"/>
-        <property name="ssoService" ref="ssoService"/>
-    </bean>
-
-
 
 </beans>

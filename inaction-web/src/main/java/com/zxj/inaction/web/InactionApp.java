@@ -23,17 +23,7 @@ public class InactionApp extends SpringBootServletInitializer {
 
     private final static Logger logger = LoggerFactory.getLogger(InactionApp.class);
 
-    @Value("${system.name}")
-    private String systemName;
-    @Value("${system.author}")
-    private String systemAuthor;
-    @Value("${system.env}")
-    private String systemEnv;
 
-    @RequestMapping("/hello")
-    public String hello() {
-        return "Hello , Spring Boot! This is " + systemName + "_" + systemEnv + " by " + systemAuthor;
-    }
 
     public static void main(String[] args) {
 

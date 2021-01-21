@@ -37,8 +37,8 @@
         <logback.version>1.1.7</logback.version>
         <log4j.version>2.9.1</log4j.version>
         <testng.version>6.10</testng.version>
-        <jsf.version>1.6.9</jsf.version>
-        <sso.version>1.0.5-SNAPSHOT</sso.version>
+        <jsf.version>1.7.1</jsf.version>
+        <sso.version>1.2.0</sso.version>
     </properties>
 
     <dependencyManagement>
