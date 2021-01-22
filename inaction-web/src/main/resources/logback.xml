@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<Property name="logPath" value="/Users/zhaoxiujie/Documents/IdeaProjects/Logs/inaction.jd.com" />
+	<contextName>inaction</contextName>
+	<property name="LOG_CHARSET" value="utf-8" />
+	<Property name="LOG_PATH" value="/Users/zhaoxiujie/Documents/IdeaProjects/Logs/inaction.jd.com" />
 	<!-- 日志文件输出到目录 -->
-	<property name="LOG_DIR" value="${logPath}"/>
+	<property name="LOG_DIR" value="${LOG_PATH}"/>
 
 	<!-- 日志文件前缀 -->
 	<property name="LOG_PREFIX" value="inaction"/>
 
 	<!-- 默认日志输出格式 -->
 	<!-- %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p [%c-%L] %m%n -->
-	<property name="LOG_MSG" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p [%c-%L] %m%n"/>
+	<property name="LOG_MSG" value="%red(%d{yyyy-MM-dd HH:mm:ss.SSS}) %yellow([%thread]) %highlight(%-5p) %magenta([%c-%L]) %cyan(%m%n)"/>
 
 	<!-- 控制台输出配置 -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -59,24 +61,15 @@
 			<pattern>${LOG_MSG}</pattern>
 		</encoder>
 	</appender>
-	<!--<appender name="TP_LOG" class="com.jd.crd.common.classic.logger.HandleAppender">
-		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-			<level>INFO</level>
-		</filter>
-		<handlePolicy class="com.jd.crd.common.classic.monitor.tp.TPPolicy">
-			<appName>jrm-monitor</appName>
-			<zkConnectionString>${r2m.zkConnection}</zkConnectionString>
-		</handlePolicy>
-		<layout class="ch.qos.logback.classic.PatternLayout">
-			<pattern>%m</pattern>
-		</layout>
-	</appender>-->
-
-	<!--<logger name="tplogger" additivity="true">
-		<appender-ref ref="TP_LOG"/>
-	</logger>-->
 
 	<!--log4jdbc  (I don't know what meaning these loggers are yet)-->
+	<!--监控sql日志输出 -->
+	<logger name="jdbc.sqlonly" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="jdbc.resultset" level="ERROR" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
 	<logger name="jdbc.sqltiming" level="debug"/>
 	<logger name="com.ibatis" level="debug"/>
 	<logger name="com.ibatis.common.jdbc.SimpleDataSource" level="debug"/>

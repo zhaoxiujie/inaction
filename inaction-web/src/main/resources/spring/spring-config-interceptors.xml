@@ -5,8 +5,6 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jsf="http://jsf.jd.com/schema/jsf"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://jsf.jd.com/schema/jsf http://jsf.jd.com/schema/jsf/jsf.xsd">
-    <!-- 单点登录JSF服务接口 -->
-    <jsf:consumer id="ssoService" interface="com.jd.ssa.service.SsoService" protocol="jsf" alias="v1" timeout="10000"/>
 
     <!--单点登录:JSF方式集成 参见https://cf.jd.com/pages/viewpage.action?pageId=80235590-->
     <!-- 单点登录 springmvc 拦截器bean -->

@@ -25,7 +25,6 @@
     <description>inaction project</description>
 
     <properties>
-        <!--<start-class>InactionApp</start-class>-->
         <modules.version>1.0.0-SNAPSHOT</modules.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

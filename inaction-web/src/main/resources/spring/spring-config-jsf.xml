@@ -5,8 +5,8 @@
        http://jsf.jd.com/schema/jsf http://jsf.jd.com/schema/jsf/jsf.xsd"
        default-autowire="byName">
 
-    <!--<jsf:registry id="jsfRegistry" protocol="jsfRegistry" index="i.jsf.jd.com" />-->
-    <jsf:registry id="jsfRegistry" protocol="jsfRegistry" index="test.i.jsf.jd.local" />
+    <jsf:registry id="jsfRegistry" protocol="jsfRegistry" index="i.jsf.jd.com" />
+    <!--<jsf:registry id="jsfRegistry" protocol="jsfRegistry" index="test.i.jsf.jd.local" />-->
 
     <!-- 单点登录JSF服务接口 -->
     <jsf:consumer id="ssoService" interface="com.jd.ssa.service.ErpSsoService" protocol="jsf" alias="BJ" timeout="10000"/>
