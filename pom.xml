@@ -30,7 +30,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <springboot.version>2.2.6.RELEASE</springboot.version>
+        <springboot.version>2.5.12</springboot.version>
         <fastjson.version>1.2.70</fastjson.version>
         <slf4j.version>1.7.25</slf4j.version>
         <logback.version>1.1.7</logback.version>
