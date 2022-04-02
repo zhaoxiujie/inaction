@@ -34,7 +34,7 @@
         <fastjson.version>1.2.70</fastjson.version>
         <slf4j.version>1.7.25</slf4j.version>
         <logback.version>1.1.7</logback.version>
-        <log4j.version>2.16.0</log4j.version>
+        <log4j.version>2.17.1</log4j.version>
         <testng.version>6.10</testng.version>
         <jsf.version>1.2.0</jsf.version>
         <sso.version>1.2.0</sso.version>
